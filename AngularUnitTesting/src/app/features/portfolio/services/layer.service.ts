@@ -22,6 +22,12 @@ export class LayerService {
       .pipe(tap(data => console.log(JSON.stringify(data))));
   }
 
+  getLayerById(id: number): Observable<Layer> {
+    return this.httpClient
+      .get<Layer>(`${this.baseUrl}/layers/${id}`)
+      .pipe(tap(data => console.log(JSON.stringify(data))));
+  }
+
   addLayer(layer: Layer): Observable<Layer> {
     let body = JSON.stringify(layer);
     return this.httpClient.post<Layer>(

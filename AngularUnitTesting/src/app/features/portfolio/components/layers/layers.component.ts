@@ -11,18 +11,24 @@ import { LayerService } from "../../services/layer.service";
 export class LayersComponent implements OnInit {
   title = "Default title";
   layers: Layer[] = [];
+  layer: Layer;
+  searchLayerId: number;
 
   @Input() value: boolean;
 
   constructor(private layerService: LayerService) {}
 
   ngOnInit() {
-    
     this.getLayers();
   }
   getLayers() {
     this.layerService.getLayers().subscribe(data => {
       this.layers = data;
+    });
+  }
+  getLayer() {
+    this.layerService.getLayerById(this.searchLayerId).subscribe(data => {
+      this.layer = data;
     });
   }
   add() {

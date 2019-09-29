@@ -57,3 +57,14 @@
     </table>
   </div>
 </div>
+
+<div class="container-fluid">
+  <div class="jumbotron">
+    <input type="text" [(ngModel)]="searchLayerId" /> <br />
+    <button class="btn btn-lg btn-success col-xs-12" (click)="getLayer()">
+      <span class="glyphicon glyphicon-earphone pull-left"></span>
+      Get Layer
+    </button>
+    <span style="color: white" > {{ layer | json }}</span>
+  </div>
+</div>
